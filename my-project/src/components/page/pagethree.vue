@@ -1,6 +1,6 @@
 <template>
   <div class="pageone">
-    <h3>{{msg}}</h3>
+    <h3>cu{{msg}}</h3>
   		<ul>
   			<li v-for="(lists,index) in list">
 	  			<span>{{index}}</span>
