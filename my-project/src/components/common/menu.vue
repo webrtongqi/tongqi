@@ -1,7 +1,19 @@
 <template>
     <div class="menu">
-        <router-link to="/pageone"><span>菜单一</span></router-link>
-        <router-link to="/pagetwo"><span>菜单二</span></router-link>
+        <ul>
+            <li>
+                 <router-link to="/pageone" class="add"><span>菜单一</span></router-link>
+            </li>
+            <li>
+                 <router-link to="/pagetwo" class="add"><span>菜单二</span></router-link>
+            </li>
+            <li>
+                 <router-link to="/pagetwo" class="add"><span>菜单二</span></router-link>
+            </li>
+            <li>
+                 <router-link to="/pagetwo" class="add"><span>菜单二</span></router-link>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
@@ -28,5 +40,7 @@
         font-size: 20px;
         display: block;
         text-align: center;
+        padding:10px 0;
     }
+
 </style>

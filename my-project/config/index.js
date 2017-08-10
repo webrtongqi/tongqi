@@ -31,6 +31,14 @@ module.exports = {
          '/api':{
                 target:'http://mobile.51kupai.com',
                 changeOrigin:true
+            },
+          '/kupai':{
+                target:'http://api.51kupai.com',
+                changeOrigin:true
+            },
+            '/s':{
+                target:'https://www.baidu.com',
+                changeOrigin:true
             }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
