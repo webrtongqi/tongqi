@@ -1,6 +1,8 @@
 <template>
   <div class="pagetwo">
   	<h3>{{msg}}</h3>
+    <h1>拍卖ID:{{saleId}}</h1>
+    <h1>拍卖名称:{{name}}</h1>
    	<ul>
    		<li v-for="(historyOns,index) in historyOn">
    			<div>{{historyOns.tag_name}}</div>
@@ -32,6 +34,8 @@ export default {
       msg: '菜单四的内容',
       historyOn:[],
       feedList:[],
+      saleId:this.$route.query.plan,
+      name:''
      
     }
   },
@@ -68,7 +72,8 @@ export default {
   	}
   },
    mounted(){
-  	axios({
+      console.log(this.$route.query.plan)
+  axios({
 	  method: 'post',
 	  url: '/api/Bazzar/home',
 	})
@@ -82,6 +87,14 @@ export default {
 	).then(function (response) {
 	    this.feedList = response.data.data.feedList
 	}.bind(this));
+
+    axios({
+      method: 'get',
+      url: '/kupai/bidOptimization/getBidDetail?saleId='+this.$route.query.plan,
+    })
+    .then(function (response) {
+       this.name = response.data.data.goodsName
+    }.bind(this));
   },
 
 }

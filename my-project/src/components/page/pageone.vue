@@ -1,9 +1,11 @@
 <template>
   <div class="pageone">
+  		<h1>{{msg}}</h1>
   		<ul>
   			<li v-for="(lists,index) in list">
 	  			<span>{{index}}</span>
-	  			<router-link to="/pagetwo" class="add"><span> {{lists.news_title}}</span></router-link>
+	  			
+	  			<router-link :to="{ path: 'pagetwo', query: { plan: lists.news_id }}" class="add"><span> {{lists.news_title}}</span></router-link>
   			</li>
   		</ul>
   		<div v-for="(slideshows,index) in slideshow" class="box">

@@ -20,19 +20,19 @@ export default new Router({
       		{ 
       			path: '/pageone',
       		  component: Pageone
- 			},
- 			{ 
+ 			    },
+ 			    { 
       			path: '/pagetwo',
       		    component: Pagetwo
- 			},
-      { 
+ 			    },
+          { 
             path: '/pagethree',
               component: Pagethree
-      },
-      { 
+          },
+          { 
             path: '/pagefour',
               component: Pagefour
-      }
+          }
       ]
     }
   ]

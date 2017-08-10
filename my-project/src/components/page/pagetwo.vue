@@ -1,22 +1,12 @@
 <template>
   <div class="pagetwo">
-  	<h3>{{msg|uppercase}}</h3>
-   	<ul>
-   		<li v-for="(historyOns,index) in historyOn">
-   			<div>{{historyOns.tag_name}}</div>
-   			<ul>
-   				<li v-for="(historyOnsData,index) in historyOns.data">
-   					<span>{{historyOnsData.price|money}}</span>
-   				</li>
-   			</ul>
-   		</li>
-   	</ul>
+  	<h1>{{msg}}</h1>
    	<ul>
    		<li v-for="(feedLists,index) in feedList">
    			<ul>
    				<li v-for="(bidsLists,index) in feedLists.themeInfo.bidsList">
    					<span>{{bidsLists.bidStatus|format(bidsLists.startTime,bidsLists.endTime,bidsLists.leftStartTime,bidsLists.leftEndTime)}}</span>
-   					<span></span>
+   					<router-link :to="{ path: 'pagefour', query: { plan: bidsLists.saleId }}" class="add"><h1> 点击跳转到详情:{{bidsLists.saleId}}</h1></router-link>
    				</li>
    			</ul>
    		</li>
@@ -29,7 +19,7 @@ import qs from 'qs';
 export default {
   data () {
     return {
-      msg: 'assaa',
+      msg: '菜单二的内容',
       historyOn:[],
       feedList:[],
      
@@ -68,6 +58,7 @@ export default {
   	}
   },
    mounted(){
+   	console.log(this.$route.query.plan)
   	axios({
 	  method: 'post',
 	  url: '/api/Bazzar/home',
