@@ -8,10 +8,10 @@
                  <router-link to="/pagetwo" class="add"><span>菜单二</span></router-link>
             </li>
             <li>
-                 <router-link to="/pagetwo" class="add"><span>菜单二</span></router-link>
+                 <router-link to="/pagethree" class="add"><span>菜单三</span></router-link>
             </li>
             <li>
-                 <router-link to="/pagetwo" class="add"><span>菜单二</span></router-link>
+                 <router-link to="/pagefour" class="add"><span>菜单四</span></router-link>
             </li>
         </ul>
     </div>
