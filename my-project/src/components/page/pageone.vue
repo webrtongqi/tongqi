@@ -1,11 +1,16 @@
 <template>
   <div class="pageone">
   		<h1>{{msg}}</h1>
+      <el-button type="primary">主要按钮</el-button>
+      <el-button type="primary" icon="edit"></el-button>
+      <el-button type="primary" icon="share"></el-button>
+      <el-button type="primary" icon="delete"></el-button>
+      <el-button type="primary" icon="search">搜索</el-button>
+      <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
   		<ul>
   			<li v-for="(lists,index) in list">
 	  			<span>{{index}}</span>
-	  			
-	  			<router-link :to="{ path: 'pagetwo', query: { plan: lists.news_id }}" class="add"><span> {{lists.news_title}}</span></router-link>
+	  			<router-link :to="{ path: 'pagetwo'}" class="add"><span> {{lists.news_title}}</span></router-link>
   			</li>
   		</ul>
   		<div v-for="(slideshows,index) in slideshow" class="box">
@@ -20,7 +25,7 @@ import qs from 'qs';
 export default {
   data () {
     return {
-      msg: '菜单一的内容',
+      msg: '导航一选项1的内容',
       list:[],
       slideshow:[],
       html:''
@@ -50,8 +55,5 @@ export default {
   .box{
   	float: left;
   	width: 100%;
-  	img{
-  		width: 100%;
-  	}
   }
 </style>

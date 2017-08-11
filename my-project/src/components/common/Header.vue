@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="logo">后台管理系统</div>
-       
+        <div>基于elementUI-webrtongqi-vue入门级别demo</div>
     </div>
 </template>
 <script>

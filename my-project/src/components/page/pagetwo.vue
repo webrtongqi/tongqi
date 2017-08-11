@@ -1,5 +1,6 @@
 <template>
   <div class="pagetwo">
+   <el-button type="text" @click="open">点击打开 Message Box</el-button>
   	<h1>{{msg}}</h1>
    	<ul>
    		<li v-for="(feedLists,index) in feedList">
@@ -11,6 +12,7 @@
    			</ul>
    		</li>
    	</ul>
+     
   </div>
 </template>
 <script>
@@ -58,23 +60,34 @@ export default {
   	}
   },
    mounted(){
-   	console.log(this.$route.query.plan)
   	axios({
-	  method: 'post',
-	  url: '/api/Bazzar/home',
-	})
-	.then(function (response) {
-	    this.historyOn = response.data.data.history_on
-	}.bind(this));
+  	  method: 'post',
+  	  url: '/api/Bazzar/home',
+	   })
+  	.then(function (response) {
+  	    this.historyOn = response.data.data.history_on
+  	}.bind(this));
 
-	axios.post(
-		'/kupai/h5/bidListByClassId', 
-		qs.stringify({classId:88,page:1})
-	).then(function (response) {
-	    this.feedList = response.data.data.feedList
-	}.bind(this));
+  	axios.post(
+  		'/kupai/h5/bidListByClassId', 
+  		qs.stringify({classId:88,page:1})
+  	).then(function (response) {
+  	    this.feedList = response.data.data.feedList
+  	}.bind(this));
   },
-
+   methods: {
+      open() {
+        this.$alert('这是一段内容', '标题名称', {
+          confirmButtonText: '确定',
+          callback: action => {
+            this.$message({
+              type: 'info',
+              message: `action: ${ action }`
+            });
+          }
+        });
+      }
+    }
 }
 </script>
 

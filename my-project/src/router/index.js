@@ -5,6 +5,10 @@ import Pageone from '@/components/page/pageone'
 import Pagetwo from '@/components/page/pagetwo'
 import Pagethree from '@/components/page/pagethree'
 import Pagefour from '@/components/page/pagefour'
+import Pagefive from '@/components/page/pagefive'
+import Pagesix from '@/components/page/pagesix'
+import Pageseven from '@/components/page/pageseven'
+import Pageeight from '@/components/page/pageeight'
 import Details from '@/components/page/details'
 Vue.use(Router)
 
@@ -12,7 +16,7 @@ export default new Router({
   routes: [
     {
         path: '/',
-        redirect: '/pagetwo'
+        redirect: '/pageone'
     },
     {
       path: '/',
@@ -32,6 +36,22 @@ export default new Router({
           },
           { 
             path: '/pagefour',
+              component: Pagefour
+          },
+          { 
+            path: '/pagefive',
+              component: Pagefour
+          },
+          { 
+            path: '/pagesix',
+              component: Pagefour
+          },
+          { 
+            path: '/pageseven',
+              component: Pagefour
+          },
+          { 
+            path: '/pageeight',
               component: Pagefour
           },
           { 
