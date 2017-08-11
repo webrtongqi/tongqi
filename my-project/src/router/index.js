@@ -10,6 +10,7 @@ import Pagesix from '@/components/page/pagesix'
 import Pageseven from '@/components/page/pageseven'
 import Pageeight from '@/components/page/pageeight'
 import Details from '@/components/page/details'
+import carousel from '@/components/page/Carousel'
 Vue.use(Router)
 
 export default new Router({
@@ -24,7 +25,8 @@ export default new Router({
       children:  [
       		{ 
       			path: '/pageone',
-      		  component: Pageone
+      		  component: Pageone,
+            
  			    },
  			    { 
       			path: '/pagetwo',
@@ -35,8 +37,8 @@ export default new Router({
               component: Pagethree
           },
           { 
-            path: '/pagefour',
-              component: Pagefour
+              path: '/pagefour',
+              component: Pagefour,
           },
           { 
             path: '/pagefive',
@@ -47,8 +49,9 @@ export default new Router({
               component: Pagefour
           },
           { 
-            path: '/pageseven',
-              component: Pagefour
+              path: '/pageseven',
+              component: Pagefour,
+             
           },
           { 
             path: '/pageeight',
@@ -58,6 +61,10 @@ export default new Router({
             path: '/details',
               component: Details
           },
+          {
+               path: '/Carousel',
+                component: carousel
+          }
       ]
     }
   ]

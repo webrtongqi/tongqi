@@ -1,7 +1,7 @@
 <template>
   <div class="pagetwo">
   	<h3>{{msg}}</h3>
-  
+    <vCarousel class='add'></vCarousel>
    	<ul>
    		<li v-for="(historyOns,index) in historyOn">
    			<div>{{historyOns.tag_name}}</div>
@@ -27,17 +27,18 @@
 <script>
 import axios from 'axios';
 import qs from 'qs';
+import vCarousel from './Carousel.vue';
 export default {
   data () {
     return {
       msg: '菜单四的内容',
       historyOn:[],
       feedList:[],
-     
-     
     }
   },
- 
+  components: {
+    vCarousel
+  },
   filters:{
   	uppercase(value){
   		 if (!value) { return ''}
@@ -91,5 +92,7 @@ export default {
 </script>
 
 <style>
-
+.add{
+  width: 50%;
+}
 </style>

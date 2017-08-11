@@ -7,9 +7,16 @@
 	  			<router-link to="/pagetwo" class="add"><span> {{lists.news_title}}</span></router-link>
   			</li>
   		</ul>
-  		<div v-for="(slideshows,index) in slideshow" class="box">
-  			<img :src='"//img.51kupai.com/pic/"+slideshows.image+"/0"'>
-  		</div>
+      <el-upload
+        class="avatar-uploader"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :show-file-list="false"
+        :on-success="handleAvatarSuccess"
+        :before-upload="beforeAvatarUpload">
+        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+      </el-upload>
+  	
   		
   </div>
 </template>
@@ -20,9 +27,11 @@ export default {
   data () {
     return {
       msg: '菜单三的内容',
+      fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
       list:[],
       slideshow:[],
-      html:''
+      html:'',
+      imageUrl: ''
     }
   },
   mounted(){
@@ -41,11 +50,51 @@ export default {
 	     this.list = response.data.data.news_list
 	}.bind(this));
 
-  }
+  },
+     methods: {
+      handleAvatarSuccess(res, file) {
+        this.imageUrl = URL.createObjectURL(file.raw);
+      },
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
+      }
+    }
 }
 </script>
 
 <style lang="less">
+   .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #20a0ff;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
   .box{
   	float: left;
   	width: 100%;
