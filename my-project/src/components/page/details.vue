@@ -1,12 +1,24 @@
 <template>
   <div class="pagetwo">
-  	<h1>{{msg}}</h1>
+  	<h3>{{msg}}</h3>
+    <h1>拍卖ID:{{saleId}}</h1>
+    <h1>拍卖名称:{{name}}</h1>
+   	<ul>
+   		<li v-for="(historyOns,index) in historyOn">
+   			<div>{{historyOns.tag_name}}</div>
+   			<ul>
+   				<li v-for="(historyOnsData,index) in historyOns.data">
+   					<span>{{historyOnsData.price|money}}</span>
+   				</li>
+   			</ul>
+   		</li>
+   	</ul>
    	<ul>
    		<li v-for="(feedLists,index) in feedList">
    			<ul>
    				<li v-for="(bidsLists,index) in feedLists.themeInfo.bidsList">
    					<span>{{bidsLists.bidStatus|format(bidsLists.startTime,bidsLists.endTime,bidsLists.leftStartTime,bidsLists.leftEndTime)}}</span>
-   					<router-link :to="{ path: 'details', query: { plan: bidsLists.saleId }}" class="add"><h1> 点击跳转到详情:{{bidsLists.saleId}}</h1></router-link>
+   					<span></span>
    				</li>
    			</ul>
    		</li>
@@ -19,9 +31,11 @@ import qs from 'qs';
 export default {
   data () {
     return {
-      msg: '菜单二的内容',
+      msg: '菜单四的内容',
       historyOn:[],
       feedList:[],
+      saleId:this.$route.query.plan,
+      name:''
      
     }
   },
@@ -58,8 +72,8 @@ export default {
   	}
   },
    mounted(){
-   	console.log(this.$route.query.plan)
-  	axios({
+      console.log(this.$route.query.plan)
+  axios({
 	  method: 'post',
 	  url: '/api/Bazzar/home',
 	})
@@ -73,6 +87,14 @@ export default {
 	).then(function (response) {
 	    this.feedList = response.data.data.feedList
 	}.bind(this));
+
+    axios({
+      method: 'get',
+      url: '/kupai/bidOptimization/getBidDetail?saleId='+this.$route.query.plan,
+    })
+    .then(function (response) {
+       this.name = response.data.data.goodsName
+    }.bind(this));
   },
 
 }

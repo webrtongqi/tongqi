@@ -5,6 +5,7 @@ import Pageone from '@/components/page/pageone'
 import Pagetwo from '@/components/page/pagetwo'
 import Pagethree from '@/components/page/pagethree'
 import Pagefour from '@/components/page/pagefour'
+import Details from '@/components/page/details'
 Vue.use(Router)
 
 export default new Router({
@@ -32,7 +33,11 @@ export default new Router({
           { 
             path: '/pagefour',
               component: Pagefour
-          }
+          },
+          { 
+            path: '/details',
+              component: Details
+          },
       ]
     }
   ]
