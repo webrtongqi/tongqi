@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
          '/api':{
-                target:'http://mobile.51kupai.com',
+                target:'http://testmobile.51kupai.com',
                 changeOrigin:true
             },
           '/kupai':{

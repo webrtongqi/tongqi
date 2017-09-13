@@ -73,7 +73,7 @@ export default {
    mounted(){
       axios({
     	  method: 'post',
-    	  url: '/api/Bazzar/home',
+    	  url: '/api/bazzar/home',
     	})
     	.then(function (response) {
     	    this.historyOn = response.data.data.history_on

@@ -37,14 +37,14 @@ export default {
   mounted(){
   	axios({
 	  method: 'post',
-	  url: '/api/Bazzar/home',
+	  url: '/api/bazzar/home',
 	})
 	.then(function (response) {
 	     this.slideshow = response.data.data.slideshow;
 	}.bind(this));
 
 	axios.post(
-		'/api/Bazzar/get_bazaar_news_list', 
+		'/api/bazzar/get_bazaar_news_list', 
 		qs.stringify({ page:1,page_num:3 })
 	).then(function (response) {
 	     this.list = response.data.data.news_list

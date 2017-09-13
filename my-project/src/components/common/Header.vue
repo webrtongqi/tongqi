@@ -22,7 +22,7 @@
         font-size: 22px;
         line-height: 70px;
         color: #fff;
-        background: #000;
+        background: #242f42;
     }
     .header .logo{
         float: left;

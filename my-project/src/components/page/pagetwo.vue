@@ -8,6 +8,7 @@
    				<li v-for="(bidsLists,index) in feedLists.themeInfo.bidsList">
    					<span>{{bidsLists.bidStatus|format(bidsLists.startTime,bidsLists.endTime,bidsLists.leftStartTime,bidsLists.leftEndTime)}}</span>
    					<router-link :to="{ path: 'details', query: { plan: bidsLists.saleId }}" class="add"><h1> 点击跳转到详情:{{bidsLists.saleId}}</h1></router-link>
+            <div v-html="handlePrice(bidsLists)"></div>
    				</li>
    			</ul>
    		</li>
@@ -27,7 +28,7 @@ export default {
      
     }
   },
- 
+  
   filters:{
   	uppercase(value){
   		 if (!value) { return ''}
@@ -62,7 +63,7 @@ export default {
    mounted(){
   	axios({
   	  method: 'post',
-  	  url: '/api/Bazzar/home',
+  	  url: '/api/bazzar/home',
 	   })
   	.then(function (response) {
   	    this.historyOn = response.data.data.history_on
@@ -70,7 +71,7 @@ export default {
 
   	axios.post(
   		'/kupai/h5/bidListByClassId', 
-  		qs.stringify({classId:88,page:1})
+  		qs.stringify({classId:85,page:1})
   	).then(function (response) {
   	    this.feedList = response.data.data.feedList
   	}.bind(this));

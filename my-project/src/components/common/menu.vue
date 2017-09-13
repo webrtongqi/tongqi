@@ -51,7 +51,8 @@
                         index:'4',
                         name:[
                            {index:"pageseven",nameindex:"选项1"},
-                           {index:"pageeight",nameindex:"选项2"}
+                           {index:"pageeight",nameindex:"选项2"},
+                           
                         ]
 
                     }

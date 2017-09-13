@@ -6,7 +6,9 @@
           <h3>{{ item }}</h3>
         </el-carousel-item>
       </el-carousel>
-      <el-button type="text" @click="open2">点击打开 Message Box</el-button>
+      <el-button type="text">点击打开 Message Box</el-button>
+      <input v-model="msg">
+      <span>{{msg}}</span>
   </div>
 </template>
 <script>
