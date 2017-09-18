@@ -9,6 +9,7 @@
 			<div id="box">{{message}}</div>
 			<el-input v-model="message" class="box"></el-input>
 			<el-button type="success"  @click="add('测试')">点击</el-button>
+			<div v-html="show('<p>ss</p>')"></div>
 	</div>
 </template>
 <script>
@@ -19,7 +20,7 @@ export default {
 		return {
 			slideshow:[],
 			fullscreenLoading: true,
-			message:'双向绑定'
+			message:''
 		}
 	},
 	mounted(){
@@ -36,10 +37,13 @@ export default {
 	methods:{
 		add:function(a){
 			this.message = a
+		},
+		show:function(b){
+			return b
 		}
-	}
-	//Vue生命周期函数;
-	/*beforeCreate(){
+	},
+	/*//Vue生命周期函数;
+	beforeCreate(){
 		alert("创建前"); 
 	},
 	created(){

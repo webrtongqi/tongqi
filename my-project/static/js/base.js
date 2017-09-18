@@ -12,10 +12,13 @@ exports.install = function (Vue, options) {
                     _rightPrice = '<p>起拍价&yen;' + data.initialPrice + '</p>';
                     break;
                 default:
-                    _leftPrice = '<p style="color:#C4311D">成交价&yen;' + data.dealPrice+ '</p>';
-                    _rightPrice = '<p>最高出价&yen;' +  data.maxPrice + '</p>';
+                    _leftPrice = '<p style="color:#C4311D">成交价&yen;' + this.formatMoney(data.dealPrice)+ '</p>';
+                    _rightPrice = '<p>最高出价&yen;' +  this.formatMoney(data.maxPrice) + '</p>';
                     break;
             }
         return _leftPrice + _rightPrice;
-	}
+	};
+    Vue.prototype.formatMoney = function(value){
+         return value >= 10000 ? (value / 10000).toFixed(2) + "万": value;
+    }
 };

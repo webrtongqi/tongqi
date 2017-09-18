@@ -75,7 +75,7 @@ export default {
       console.log(this.$route.query.plan)
   axios({
 	  method: 'post',
-	  url: '/api/Bazzar/home',
+	  url: '/api/bazzar/home',
 	})
 	.then(function (response) {
 	    this.historyOn = response.data.data.history_on

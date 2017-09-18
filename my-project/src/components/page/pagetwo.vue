@@ -1,7 +1,7 @@
 <template>
   <div class="pagetwo">
    <el-button type="text" @click="open">点击打开 Message Box</el-button>
-  	<h1>{{msg}}</h1>
+  	<h1 class="title">{{msg}}</h1>
    	<ul>
    		<li v-for="(feedLists,index) in feedList">
    			<ul>
@@ -13,7 +13,7 @@
    			</ul>
    		</li>
    	</ul>
-     
+     <div>{{formatMoney(1000000)}}</div>
   </div>
 </template>
 <script>
@@ -25,6 +25,7 @@ export default {
       msg: '菜单二的内容',
       historyOn:[],
       feedList:[],
+      int:this.formatMoney(1000000)
      
     }
   },
@@ -32,8 +33,8 @@ export default {
   filters:{
   	uppercase(value){
   		 if (!value) { return ''}
-		 value = value.toString()
-		 return value.charAt(0).toUpperCase() + value.slice(1)
+		   value = value.toString()
+		   return value.charAt(0).toUpperCase() + value.slice(1)
   	},
   	money(value){
   		
@@ -92,6 +93,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    .title{
+      color: red;
+      font-size: 30px;
+    }
 </style>

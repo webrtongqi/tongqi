@@ -33,7 +33,7 @@ module.exports = {
                 changeOrigin:true
             },
           '/kupai':{
-                target:'http://api.51kupai.com',
+                target:'http://testapi.51kupai.com',
                 changeOrigin:true
             },
             '/s':{

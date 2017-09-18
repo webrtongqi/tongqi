@@ -15,7 +15,7 @@
 export default {
   data () {
     return {
-      msg: '菜单二的内容',
+      msg: '组件的内容',
      
     }
   },
