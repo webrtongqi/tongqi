@@ -9,7 +9,7 @@ exports.install = function (Vue, options) {
                     break;
                 case 3:
                     _leftPrice = '<p style="color:#C4311D">当前价&yen;' + data.maxPrice + '</p>';
-                    _rightPrice = '<p>起拍价&yen;' + data.initialPrice + '</p>';
+                    _rightPrice = '<p>1起拍价&yen;' + data.initialPrice + '</p>';
                     break;
                 default:
                     _leftPrice = '<p style="color:#C4311D">成交价&yen;' + this.formatMoney(data.dealPrice)+ '</p>';
