@@ -5,7 +5,7 @@ exports.install = function (Vue, options) {
             switch (data.bidStatus) {
                 case 2:
                     _leftPrice = '<p style="color:#B28147">起拍价&yen;' + data.initialPrice + '</p>';
-                    _rightPrice = '<p>保证金&yen;' +data.bailPrice + '</p>';
+                    _rightPrice = '<p>1保证金&yen;' +data.bailPrice + '</p>';
                     break;
                 case 3:
                     _leftPrice = '<p style="color:#C4311D">当前价&yen;' + data.maxPrice + '</p>';
