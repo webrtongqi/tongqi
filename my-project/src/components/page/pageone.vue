@@ -6,26 +6,49 @@
 				</el-carousel-item>
 			</el-carousel>
 			<el-button type="primary" :loading="true">加载中</el-button>
-			<div id="box">{{message}}</div>
+		<!-- 	<div id="box">{{message}}</div>
 			<el-input v-model="message" class="box"></el-input>
-			<el-button type="success"  @click="add('测试')">点击</el-button>
+			<el-button type="success"  @click="add('测试')">点击</el-button> -->
 			<div v-html="show('<p>ss</p>')"></div>
+			<div class="schart">
+	            <div class="content-title">柱状图</div>
+	            <schart canvasId="bar" width="500" height="400" :data="message" type="bar" :options="options1"></schart>
+       		</div>
 	</div>
 </template>
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 import qs from 'qs';
+import Schart from 'vue-schart';
 export default {
 	data () {
 		return {
 			slideshow:[],
 			fullscreenLoading: true,
-			message:''
+			message:[
+                {name:'2012',value:1141},
+                {name:'2013',value:1499},
+                {name:'2014',value:2260},
+                {name:'2015',value:1170},
+                {name:'2016',value:970},
+                {name:'2017',value:1450}
+            ],
+            options1: {
+                title: '某商店近年营业总额',
+                bgColor: '#829dda',
+                titleColor: '#ffffff',
+                fillColor: '#72f6ff',
+                axisColor: '#eeeeee',
+                contentColor: '#bbbbbb'
+            },
 		}
 	},
+	 components: {
+            Schart
+        },
 	mounted(){
 		//alert("载入后");
-		axios({
+		this.$axios({
 		 method: 'post',
 		 url: '/api/bazzar/home',
 		})
